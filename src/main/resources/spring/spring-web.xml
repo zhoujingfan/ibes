@@ -26,10 +26,17 @@
      <!-- 3.配置jsp 显示ViewResolver -->
      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="prefix" value="./" />
         <property name="suffix" value=".jsp" />
      </bean>
 
      <!-- 4.扫描web相关的bean -->
      <context:component-scan base-package="com.buptsse.ibes.controller" />
+     <!-- 5.配置拦截器  -->
+     <mvc:interceptors>
+     	<mvc:interceptor> 
+     	 <mvc:mapping path="/**"/>
+     	 <bean class="com.buptsse.ibes.interceptor.LoginInterceptor"/>
+     	</mvc:interceptor>
+     </mvc:interceptors>
 </beans>

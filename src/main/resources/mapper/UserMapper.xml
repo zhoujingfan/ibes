@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.buptsse.ibes.dao.UserMapper" >
+<mapper namespace="com.buptsse.ibes.dao.UserDao" >
   <resultMap id="BaseResultMap" type="com.buptsse.ibes.model.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -15,6 +15,11 @@
     <include refid="Base_Column_List" />
     from cn_user
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUsername" resultMap="BaseResultMap" parameterType="String">
+  	select <include refid="Base_Column_List" />
+  	from cn_user 
+  	where username = #{username}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cn_user

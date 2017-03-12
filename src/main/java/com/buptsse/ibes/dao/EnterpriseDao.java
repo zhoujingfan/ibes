@@ -2,7 +2,7 @@ package com.buptsse.ibes.dao;
 
 import com.buptsse.ibes.model.Enterprise;
 
-public interface EnterpriseMapper {
+public interface EnterpriseDao {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Enterprise record);

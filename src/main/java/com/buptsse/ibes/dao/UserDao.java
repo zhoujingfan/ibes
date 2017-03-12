@@ -2,7 +2,7 @@ package com.buptsse.ibes.dao;
 
 import com.buptsse.ibes.model.User;
 
-public interface UserMapper {
+public interface UserDao {
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
@@ -11,6 +11,8 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
+    User selectByUsername(String username);
+    
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
